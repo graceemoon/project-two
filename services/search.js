@@ -1,6 +1,6 @@
-const fetch		= require('node-fetch');
+const fetch	= require('node-fetch');
 
-const API_URL	= 'http://pokeapi.co/api/v2/pokemon/';
+const API_URL = 'http://pokeapi.co/api/v2/pokemon/';
 
 function getPoke(req, res, next) {
 	fetch(`${API_URL}${req.body.name}`)

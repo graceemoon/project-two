@@ -1,9 +1,9 @@
-const router = require.('express').Router();
+// const router = require('express').Router();
 
-router.get('/', (req,res) => {
-	res.render('poke', {
-		poke: res.pokedex;
-	});
-});
+// router.get('/', (req,res) => {
+// 	res.render('poke', {
+// 		poke: res.pokedex,
+// 	});
+// });
 
-module.exports = router;
+// module.exports = router;

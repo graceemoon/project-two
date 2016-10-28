@@ -1,16 +1,17 @@
-const express	= require('express');
-const logger 	= require('morgan');
+const express		= require('express');
+const logger 		= require('morgan');
+// const bodyParser = require('body-parser');
 
 //connect to routes files
-const homeRoute	= require('./routes/home');
-const searchRoute = require('./routes/search');
-const pokeRoute	= require('./routes/poke');
+// const homeRoute	= require('./routes/home');
+const searchRoute 	= require('./routes/search');
+// const pokeRoute	= require('./routes/poke');
 
 
 //initializing express
-const app 		= express();
+const app 			= express();
 //what port to listen on
-const PORT		= process.argv[2] || process.env.PORT || 3000;
+const PORT			= process.argv[2] || process.env.PORT || 3000;
 
 
 //declare views
@@ -19,10 +20,14 @@ app.set('views', './views');
 
 //middleware being used
 app.use(logger('dev'));
+app.use(express.static('./public'));
+// app.use(bodyParser.urlencoded({ extended: true}));
+
+
 //
-app.use('/', homeRoute);
+// app.use('/', homeRoute);
 app.use('/search', searchRoute);
-app.use('/poke', pokeRoutes);
+// app.use('/poke', pokeRoutes);
 
 
 //app will listen on this port
