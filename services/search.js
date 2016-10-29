@@ -1,18 +1,19 @@
-const fetch	= require('node-fetch');
+// const fetch	= require('node-fetch');
 
-const API_URL = 'http://pokeapi.co/api/v2/pokemon/';
+// const API_URL = 'http://pokeapi.co/api/v2/pokemon/';
 
-function getPoke(req, res, next) {
-	fetch(`${API_URL}${req.body.name}`)
-	.then(r => r.json())
-	.then((result) => {
-		res.pokemon = result;
-		next();
-	})
-	.catch((err) => {
-		res.err = err;
-		next();
-	});
-}
+// function getPoke(req, res, next) {
+// 	fetch(`${API_URL}${req.query.name}`)
 
-module.exports = { getPokemon };
+// 	.then(r => r.json())
+// 	.then((result) => {
+// 		res.pokemon = result;
+// 		next();
+// 	})
+// 	.catch((err) => {
+// 		res.err = err;
+// 		next();
+// 	});
+// }
+
+// module.exports = { getPoke };

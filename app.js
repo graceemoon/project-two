@@ -1,36 +1,54 @@
-const express		= require('express');
-const logger 		= require('morgan');
-// const bodyParser = require('body-parser');
+const dotEnv			=require('dotenv').config({silent: true});
+const express			= require('express');
+const logger 			= require('morgan');
+const bodyParser 		= require('body-parser');
+const path				= require('path');
+const session			= require('express-session');
+const cookieParser		= require('cookie-parser');
+const methodOverride	= require('method-override');
+
 
 //connect to routes files
-// const homeRoute	= require('./routes/home');
-const searchRoute 	= require('./routes/search');
-// const pokeRoute	= require('./routes/poke');
+const homeRoute			= require('./routes/home');
+const authRoute			= require('./routes/auth');
+const userRoute			= require('./routes/users');
+// const searchRoute 		= require('./routes/search');
+// const favesRoute 	= require('./routes/faves');
 
 
 //initializing express
-const app 			= express();
+const app 				= express();
+const secret 			='secret3000';
 //what port to listen on
-const PORT			= process.argv[2] || process.env.PORT || 3000;
+const PORT				= process.env.PORT || 3000;
 
 
 //declare views
 app.set('view engine', 'ejs');
-app.set('views', './views');
+app.set('views', 'views');
 
 //middleware being used
 app.use(logger('dev'));
+
 app.use(express.static('./public'));
-// app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: true}));
+app.use(methodOverride('_method'));
+app.use(cookieParser());
+
+// app.use(session({
+// 	resave: false,
+// 	saveUninitialized: false,
+// 	secret:SECRET
+// }))
 
 
-//
-// app.use('/', homeRoute);
-app.use('/search', searchRoute);
-// app.use('/poke', pokeRoutes);
+app.use('/', homeRoute);
+// app.use('/search', searchRoute);
+// app.use('/search/:id', searchRoute);
+// // app.use('/faves', favesRoutes);
 
 
 //app will listen on this port
-app.listen(PORT,() => console('Server running on port', PORT));
+app.listen(PORT, () => console.log('Server running on port', PORT));
 
 
