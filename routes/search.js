@@ -6,7 +6,7 @@ const { getPoke } = require('../services/search');
 // router.use(methodOverride('_method'));
 
 router.get('/', getPoke, (req, res) => {
-	// console.log(res.pokemon);
+	console.log(res.pokemon);
 	res.render('search', {
 		pokes: res.pokemon || [] 
 		// pokesave: res.gotPoke || [],

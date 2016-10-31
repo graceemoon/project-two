@@ -1,0 +1,39 @@
+body {
+	color: white;
+	background-color: black;
+	font-family: 'Play', sans-serif;
+/*	font-family: 'Press Start 2P', cursive;*/
+	margin: 0px;
+	padding: 0px;
+		height: 100%;
+}
+
+h1 {
+
+	margin: 0 auto;
+	padding:0px;
+
+}
+
+a {
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+}
+a:hover {
+	color: red;
+}
+
+.homeBox {
+	display: inline-block;
+/*	position: absolute;*/
+}
+
+.pokemonSearch{
+
+}
+.searchSubmit {
+	background-color: red;
+	border: 1px;
+	color: white;
+}
