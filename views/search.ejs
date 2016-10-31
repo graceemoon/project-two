@@ -18,15 +18,28 @@
 
   <div id="search-results-container">
     <h2>Search Results:</h2>
-    <% pokes.results.forEach((pokemon) => { %>
+    <% pokes.forEach((pokemon) => { %>
       <div class="search-results">
-
-        <p><%= pokes.results[0].name %></p>
-        <p><%=   %></p>
+        <p><%= pokemon.name %></p>
+        <p><%= pokemon.url %></p>
       </div>
     <% }) %>
   </div>
 
 
+  <div id="search-results-container">
+    <h2>Search Params:</h2>
+    <% poke.forEach((x) => { %>
+      <div class="search-results">
+        <p><%= x.name %></p>
+        <p><%= x.sprite %></p>
+      </div>
+    <% }) %>
+  </div>
+  
+
+
 </body>
 </html>
+
+

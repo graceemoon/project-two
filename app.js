@@ -9,7 +9,7 @@ const path				= require('path');
 
 
 //connect to routes files
-// const homeRoute			= require('./routes/home');
+const homeRoute			= require('./routes/home');
 // const authRoute			= require('./routes/auth');
 // const userRoute			= require('./routes/users');
 const searchRoute 		= require('./routes/search');
@@ -18,14 +18,14 @@ const searchRoute 		= require('./routes/search');
 
 //initializing express
 const app 				= express();
-const secret 			='secret3000';
+// const secret 			='secret3000';
 //what port to listen on
 const PORT				= process.env.PORT || 3000;
 
 
 //declare views
 app.set('view engine', 'ejs');
-app.set('views', 'views/users');
+app.set('views', 'views');
 
 //middleware being used
 app.use(logger('dev'));
@@ -42,8 +42,8 @@ app.use(bodyParser.urlencoded({ extended: true}));
 // }))
 
 
-// app.use('/', homeRoute);
-app.use('/', searchRoute);
+app.use('/', homeRoute);
+app.use('/search', searchRoute);
 // app.use('/search/:id', searchRoute);
 // // app.use('/faves', favesRoutes);
 

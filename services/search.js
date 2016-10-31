@@ -6,7 +6,7 @@ function getPoke(req, res, next) {
 	fetch(`${API_URL}`)
 	.then(r => r.json())
 	.then((result) => {
-		res.pokemon = result;
+		res.pokemon = result.results;
 		next();
 	})
 	.catch((err) => {
