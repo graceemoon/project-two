@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "author": "grace moon",
   "license": "ISC",
@@ -23,5 +24,8 @@
     "morgan": "^1.7.0",
     "node-fetch": "^1.6.3",
     "path": "^0.12.7"
+  }
+  "engines": {
+    "node": "6.6.0"
   }
 }

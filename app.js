@@ -8,6 +8,7 @@ const cookieParser		= require('cookie-parser');
 const methodOverride	= require('method-override');
 
 
+
 //connect to routes files
 const homeRoute			= require('./routes/home');
 const authRoute			= require('./routes/auth');

@@ -17,25 +17,6 @@ function getPokes(req, res, next) {
 	});
 	return false;
 }
-// function getPokes(req, res, next) {
-// 	MongoClient.connect(dbConnection, (err, db) => {
-// 		if (err) return next(err);
-
-// 		db.collection('faves')
-// 		.find({})
-// 		.sort({pokeName: 1 }) //what is this?
-// 		.toArray((err, result) => {
-// 			if (err) return next(err);
-
-// 			res.gotPokes = result;
-// 			db.close();
-// 			return next();
-// 		});
-// 		return false;
-// 	});
-// 	return false;
-// }
-
 
 //function savePokes(req, res, next) {};
 function savePokes(req, res, next) {
