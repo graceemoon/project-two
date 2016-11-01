@@ -1,4 +1,4 @@
-const dotEnv			=require('dotenv').config({silent: true});
+const dotEnv			= require('dotenv').config({silent: true});
 const express			= require('express');
 const logger 			= require('morgan');
 const bodyParser 		= require('body-parser');
@@ -13,7 +13,8 @@ const homeRoute			= require('./routes/home');
 const authRoute			= require('./routes/auth');
 const userRoute			= require('./routes/users');
 const searchRoute 		= require('./routes/search');
-// const favesRoute 	= require('./routes/faves');
+const resultsRoute		= require('./routes/results');
+const favesRoute 	= require('./routes/faves');
 
 
 //initializing express
@@ -46,8 +47,10 @@ app.use('/', homeRoute);
 app.use('/search', searchRoute);
 app.use('/users', userRoute);
 app.use('/auth', authRoute);
+app.use('/results', resultsRoute);
+app.use('/faves', favesRoutes);
 // app.use('/search/:id', searchRoute);
-// // app.use('/faves', favesRoutes);
+
 
 
 //app will listen on this port

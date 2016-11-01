@@ -5,13 +5,22 @@ const { getPoke } = require('../services/search');
 
 // router.use(methodOverride('_method'));
 
-router.get('/', getPoke, (req, res) => {
-	console.log(res.pokemon);
+router.get('/',  (req, res) => {
+	// console.log(res.pokemon);
 	res.render('search', {
-		pokes: res.pokemon || [] 
-		// pokesave: res.gotPoke || [],
+		// pokes: res.pokemon || [], 
 	})
 });
+
+
+// router.get('/findPokemon', getPoke, (req, res) => {
+// 	console.log(res.pokemon);
+// 	res.render('results', {
+// 	pokes: res.pokemon || [], 
+// 	// pokesave: res.gotPoke || [],
+// 	})
+// 	// res.json(res.pokemon);
+// });
 
 // router.post('/search', (req, res) => {
 // 	res.render('search', {

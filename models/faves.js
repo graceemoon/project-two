@@ -1,9 +1,9 @@
-// const { MongoClient }	= require('mongodb');
-// const { ObjectID }	 	= require('mongodb');
-// const dbCOnnection		= 'mongodb://localhost:27017/pokemon';
+const { MongoClient }	= require('mongodb');
+const { ObjectID }	 	= require('mongodb');
+const dbConnection		= 'mongodb://localhost:27017/pokemon';
 
 // function getPokes(req, res, next) {
-// 	MongoClient.connect(dbCOnnection, (err, db) => {
+// 	MongoClient.connect(dbConnection, (err, db) => {
 // 		if (err) return next(err);
 
 // 		db.collection('faves')
@@ -21,16 +21,49 @@
 // 	return false;
 // }
 
-// //function savePokes(req, res, next) {};
+//function savePokes(req, res, next) {};
+function savePokes(req, res, next) {
+	//create empty obj
+	const insertObj = {};
+
+	//copy all of req.body
+	for(key in req.body) {
+		insertObj[key] = req.body[key];
+	}
+	insertObj.favorite.userId = req.session.userId;
+
+	getDB().then((db) => {
+		db.collection('faves')
+		.insert(insertObj.favorite, (insErr, result) => {
+			if(insErr) return next (insErr);
+			res.saved = result;
+			db.close();
+			next();
+		});
+		return false;
+	});
+	return false;
+}
 
 
+//function deletePokes(req, res, next) {};
+function deletePokes(req, res, next) {
+	getDB().then((db) => {
+		db.collection('faves')
+		.remove({_id: ObjectID(req.params.id)}, (remErr, results) => {
+			if(remErr) return next(remErr);
+			res.removed = result;
+			db.close();
+			next();
+		});
+		return false;
+	});
+	return false;
+}
 
-// //function deletePokes(req, res, next) {};
 
-
-
-// // module.exports = {
-// // 	getPokes,
-// // 	savePokes,
-// // 	deletePokes,
-// // };
+module.exports = {
+	// getPokes,
+	savePokes,
+	deletePokes,
+};
