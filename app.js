@@ -14,7 +14,7 @@ const authRoute			= require('./routes/auth');
 const userRoute			= require('./routes/users');
 const searchRoute 		= require('./routes/search');
 const resultsRoute		= require('./routes/results');
-const favesRoute 	= require('./routes/faves');
+const favesRoute 		= require('./routes/faves');
 
 
 //initializing express
@@ -48,7 +48,7 @@ app.use('/search', searchRoute);
 app.use('/users', userRoute);
 app.use('/auth', authRoute);
 app.use('/results', resultsRoute);
-app.use('/faves', favesRoutes);
+app.use('/faves', favesRoute);
 // app.use('/search/:id', searchRoute);
 
 

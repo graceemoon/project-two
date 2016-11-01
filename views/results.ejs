@@ -12,7 +12,7 @@
 	<h1>Search Pokemonsss</h1>
 
 	<div class="pokemonSearch">
-	  <form action="/search/findPokemon" method="GET">
+	  <form action="/results/findPokemon" method="GET">
     	<input type="text" name="name" placeholder="Pokemon Search">
     	<input type="submit" value="Search">
   		</form>
@@ -24,9 +24,12 @@
 		<img src="<%= pokes.sprites.front_default %>"/>
 		Pokemon: <%= pokes.name %>
 		Type: <%= pokes.types[0].type.name %>
-		
-
-	</div>
+		<form action="/faves" method="POST">
+			<input type="hidden" name="favorites[name]" value="<%= pokes.name %>">
+			<input type="hidden" name="favorites[name]" value="<%= pokes.types[0].type.name %>">
+			<input type="submit" value="Fave">
+			</form>
+		</div>
 
 </body>
 </html>

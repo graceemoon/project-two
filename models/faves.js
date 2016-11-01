@@ -1,7 +1,22 @@
-const { MongoClient }	= require('mongodb');
+// const { MongoClient }	= require('mongodb');
 const { ObjectID }	 	= require('mongodb');
+const { getDB }			= require('../lib/dbConnect.js');
 const dbConnection		= 'mongodb://localhost:27017/pokemon';
 
+function getPokes(req, res, next) {
+	getDB().then((db) => {
+		db.collection('favorites')
+		.find({ userId: {$eq: req.session.userId}})
+		.toArray((toArrayError, data) => {
+			if(toArrayError) return next(toArrayError);
+			res.favorites = data;
+			db.close();
+			next();
+		});
+		return false;
+	});
+	return false;
+}
 // function getPokes(req, res, next) {
 // 	MongoClient.connect(dbConnection, (err, db) => {
 // 		if (err) return next(err);
@@ -20,6 +35,7 @@ const dbConnection		= 'mongodb://localhost:27017/pokemon';
 // 	});
 // 	return false;
 // }
+
 
 //function savePokes(req, res, next) {};
 function savePokes(req, res, next) {
@@ -63,7 +79,7 @@ function deletePokes(req, res, next) {
 
 
 module.exports = {
-	// getPokes,
+	getPokes,
 	savePokes,
 	deletePokes,
 };

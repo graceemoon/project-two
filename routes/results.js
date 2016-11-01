@@ -1,7 +1,7 @@
 const router 	= require('express').Router();
 const { getPoke } = require('../services/search');
 const { savePokes } = require('../models/faves');
-const { deletePokes } = require('..models/faves');
+const { deletePokes } = require('../models/faves');
 
 router.get('/',  (req, res) => {
 	// console.log(res.pokemon);
