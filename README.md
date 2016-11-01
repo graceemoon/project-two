@@ -1,6 +1,14 @@
 # project-two
 
-![](img/sad-jigglypuff.png)
+![](img/home-page.png)
+
+API Used:
+http://pokeapi.co/
+
+Use:
+User can search for and save their favorite Pokemon
+No need to open up your NDS to check what Pokemon you have, user can just check their Faves :)
+
 
 
 PokeFave
